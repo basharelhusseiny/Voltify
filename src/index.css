@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --mainColor: #009689;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Inter", sans-serif;
+  /* font-family: "DM Sans", sans-serif; */
+}
+::selection {
+  background-color: var(--mainColor);
+  color: white;
+}
+.active {
+  color: var(--mainColor);
+}
+
+/* for Scroll */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #cbfffb;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--mainColor);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #026159;
+}
+.min-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonials-swiper .swiper-pagination {
+  position: relative;
+  bottom: 15px !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: black !important;
+  width: 9px !important;
+  height: 9px !important;
+  margin-top: 50px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--mainColor) !important;
+  width: 20px !important;
+  border-radius: 5px !important;
+  transition-duration: 500ms !important;
+}
+
+/* Custom breakpoint for extra large screens */
+@media (min-width: 1300px) {
+  .feature-card {
+    padding: 0.75rem !important;
+  }
+
+  .feature-card h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .feature-card p {
+    font-size: 0.8rem !important;
+  }
+
+  .icon-wrapper {
+    margin-right: 0.75rem !important;
+  }
+
+  .features-grid {
+    gap: 0.85rem !important;
+  }
+
+  .features-title {
+    margin-bottom: 1rem !important;
+    font-size: 1.35rem !important;
+  }
+
+  .special-offer {
+    padding: 1rem !important;
+  }
+
+  .special-offer h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .special-offer p {
+    font-size: 0.85rem !important;
+  }
+
+  .special-offer-button {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+.brands-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+
+
