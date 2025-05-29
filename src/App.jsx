@@ -9,6 +9,7 @@ import SearchModalProvider from "./context/SearchModalContext";
 import MobileMenuProvider from "./context/MobileMenuContext";
 import Register from "./pages/Register";
 import SingleProductPage from "./pages/SingleProductPage";
+import CategoryPage from "./pages/CategoryPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const App = () => {
         { path: "/register", element: <Register /> },
         { path: "/register", element: <Register /> },
         { path: "/singleProductPage/:id", element: <SingleProductPage /> },
+        { path: "/categoryPage/:categoryName", element: <CategoryPage /> },
       ],
     },
   ]);

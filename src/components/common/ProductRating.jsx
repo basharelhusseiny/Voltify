@@ -42,7 +42,9 @@ const ProductRating = ({ rating, reviews }) => {
       ) : (
         <FaRegStar className="text-gray-500" />
       )}
-      <span className="text-gray-500 text-sm ml-1">({reviews.length})</span>
+      {reviews && (
+        <span className="text-gray-500 text-sm ml-1">({reviews.length})</span>
+      )}
     </div>
   );
 };

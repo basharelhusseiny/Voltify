@@ -70,68 +70,71 @@ const NewArrivals = () => {
   };
 
   return (
-    <section className="pb-14 pt-10 rounded-2xl bg-gradient-to-b from-white to-teal-100">
+    <section>
       <SectionHeader
         title="New Arrivals"
         description="Discover our latest products and exclusive deals"
       />
-
-      <motion.div
-        className="mt-10 px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        {newArrivals.map((item) => (
-          <motion.div
-            key={item.id}
-            className="relative overflow-hidden rounded-xl shadow-lg group h-[320px] sm:h-[350px]"
-            variants={itemVariants}
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
-          >
-            <div className="absolute inset-0 w-full h-full">
-              <img
-                src={`/images/${item.img}`}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div
-                className={`absolute inset-0 bg-gradient-to-t ${item.color} opacity-60 transition-opacity duration-300 group-hover:opacity-80`}
-              ></div>
-            </div>
-            <div className="absolute top-4 left-4 bg-white text-teal-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-              NEW ARRIVAL
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-              <h3 className="text-2xl font-bold mb-2 tracking-tight">
-                {item.title}
-              </h3>
-              <p className="text-sm text-white font-medium mb-4">{item.features}</p>
-              {item.price && (
-                <p className="text-lg font-semibold mb-4">{item.price}</p>
-              )}
-              {item.discount && (
-                <div className="flex items-center mb-4">
-                  <span className="bg-red-500 text-white text-sm font-semibold px-2 py-1 rounded-md mr-2">
-                    SAVE {item.discount}
-                  </span>
-                  <span className="font-semibold text-white text-sm">
-                    Limited time offer
-                  </span>
-                </div>
-              )}
-              <motion.button
-                className="font-semibold mt-2 cursor-pointer flex items-center justify-between bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white py-2 px-4 rounded-lg transition-colors duration-300 group/btn"
-                whileTap={{ scale: 0.97 }}
-              >
-                <span>{item.buttonText}</span>
-                <FaArrowRight className="ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </motion.button>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="container mx-auto px-5 pt-6 pb-14 bg-gradient-to-b from-white to-teal-100 rounded-2xl">
+        <motion.div
+          className="mt-10 px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {newArrivals.map((item) => (
+            <motion.div
+              key={item.id}
+              className="relative overflow-hidden rounded-xl shadow-lg group h-[320px] sm:h-[350px]"
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            >
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={`/images/${item.img}`}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${item.color} opacity-60 transition-opacity duration-300 group-hover:opacity-80`}
+                ></div>
+              </div>
+              <div className="absolute top-4 left-4 bg-white text-teal-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                NEW ARRIVAL
+              </div>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                <h3 className="text-2xl font-bold mb-2 tracking-tight">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white font-medium mb-4">
+                  {item.features}
+                </p>
+                {item.price && (
+                  <p className="text-lg font-semibold mb-4">{item.price}</p>
+                )}
+                {item.discount && (
+                  <div className="flex items-center mb-4">
+                    <span className="bg-red-500 text-white text-sm font-semibold px-2 py-1 rounded-md mr-2">
+                      SAVE {item.discount}
+                    </span>
+                    <span className="font-semibold text-white text-sm">
+                      Limited time offer
+                    </span>
+                  </div>
+                )}
+                <motion.button
+                  className="font-semibold mt-2 cursor-pointer flex items-center justify-between bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white py-2 px-4 rounded-lg transition-colors duration-300 group/btn"
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <span>{item.buttonText}</span>
+                  <FaArrowRight className="ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </motion.button>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };

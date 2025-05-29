@@ -258,7 +258,8 @@ const Footer = () => {
                 </h4>
                 <div className="flex space-x-3">
                   <img
-                    src="/public/images/footer_img.png"
+                  loading="lazy"
+                    src="/images/footer_img.png"
                     alt="Apple Pay"
                     className="h-8 bg-white rounded px-1"
                     onError={(e) => {

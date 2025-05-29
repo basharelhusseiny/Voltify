@@ -5,11 +5,13 @@ import useFetchCategories from "../../hooks/useFetchCategories";
 import { BiSearch } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import useClickOutside from "../../hooks/useClickOutside";
+import { useSearchModalContext } from "../../context/SearchModalContext";
 
 const SearchBar = () => {
   const [dropDown, setDropDown] = useState(false);
-  const { categories } = useFetchCategories();
   const dropDownRef = useRef(null);
+  const { allCategory } = useFetchCategories();
+  const { setIsSearchModalOpen } = useSearchModalContext();
 
   useClickOutside(dropDownRef, () => setDropDown(false));
 
@@ -66,10 +68,11 @@ const SearchBar = () => {
               role="menu"
               className="min-scrollbar absolute left-0 top-8 z-auto w-44 max-h-[350px] overflow-y-auto rounded border border-gray-300 bg-white shadow-sm text-gray-600 text-sm"
             >
-              {categories.map((category) => (
+              {allCategory.map((category) => (
                 <motion.div variants={itemVariants} key={category.slug}>
                   <Link
-                    to="#"
+                    to={`/categoryPage/${category.slug}`}
+                    onClick={() => setIsSearchModalOpen(false)}
                     className="block px-3 py-2 border-b border-gray-300 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-black"
                     role="menuitem"
                   >

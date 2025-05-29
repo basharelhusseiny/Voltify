@@ -10,9 +10,7 @@ const Layout = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow mt-16">
-        <section className="container mx-auto px-5 pt-6">
-          <Outlet />
-        </section>
+        <Outlet />
       </main>
       <Footer />
       <MobileSearchModal />

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Pagination = ({ pages, currentPage, setCurrentPage }) => {
   const [isCompactMode, setIsCompactMode] = useState(false);
@@ -92,21 +94,21 @@ const Pagination = ({ pages, currentPage, setCurrentPage }) => {
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage((prev) => prev - 1)}
-          className={`disabled:opacity-50 disabled:cursor-not-allowed px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full hover:text-white hover:bg-teal-500 cursor-pointer transition-colors duration-300 ${
+          className={`disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] rounded-full mx-0.5 cursor-pointer hover:bg-teal-500 hover:text-white transition-colors duration-300 ${
             currentPage === 1 ? "bg-gray-200" : "bg-gray-100"
           }`}
         >
-          <span>Prev</span>
+          <IoIosArrowBack />
         </button>
         <div className="mx-1 sm:mx-2">{renderPageNumbers()}</div>
         <button
           disabled={currentPage === pages}
           onClick={() => setCurrentPage((prev) => prev + 1)}
-          className={`disabled:opacity-50 disabled:cursor-not-allowed px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full hover:text-white hover:bg-teal-500 cursor-pointer transition-colors duration-300 ${
+          className={`disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] rounded-full mx-0.5 cursor-pointer hover:bg-teal-500 hover:text-white transition-colors duration-300 ${
             currentPage === pages ? "bg-gray-200" : "bg-gray-100"
           }`}
         >
-          <span>Next</span>
+          <IoIosArrowForward />
         </button>
       </div>
     </div>

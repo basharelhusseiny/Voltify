@@ -86,69 +86,74 @@ const HeroSection = () => {
   ];
   return (
     <section>
-      <div className="flex flex-col lg:flex-row items-stretch gap-5">
-        {/* Main Slider - Left Side */}
-        <div className="w-full lg:w-4/6">
-          <Swiper
-            loop={true}
-            speed={2000}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Autoplay, Pagination]}
-            className="w-full h-[400px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden"
-          >
-            {heroSectionSwiper.map((slide) => {
-              return (
-                <SwiperSlide key={slide.id} className="relative">
-                  <img
-                    src={`/images/${slide.image}`}
-                    alt={slide.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/20 flex items-center">
-                    <div className="text-white p-4 md:p-6 max-w-md">
-                      <span className="inline-block bg-teal-600 text-white px-4 py-1 rounded-full text-xs md:text-sm font-medium mb-2 md:mb-3">
-                        {slide.discount}
-                      </span>
-                      <h2 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
-                        {slide.name}
-                      </h2>
-                      <p className="mb-2 md:mb-4 text-gray-100 font-semibold text-sm">
-                        {slide.description}
-                      </p>
-                      <ul className="mb-3 md:mb-4 space-y-0 md:space-y-1">
-                        {slide.features.map((feature, index) => (
-                          <li key={index} className="flex items-center text-sm">
-                            <span className="mr-2 text-lg text-teal-600 font-bold">
-                              ✓
-                            </span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                      <div>
-                        <Link
-                          to="/shop"
-                          className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white py-1.5 px-3 md:py-2 md:px-4 rounded-md text-sm transition-all duration-300"
-                        >
-                          Shop Now
-                          <FaArrowRight className="ml-2" />
-                        </Link>
+      <div className="container mx-auto px-5 pt-6">
+        <div className="flex flex-col lg:flex-row items-stretch gap-5">
+          {/* Main Slider - Left Side */}
+          <div className="w-full lg:w-4/6">
+            <Swiper
+              loop={true}
+              speed={2000}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Autoplay, Pagination]}
+              className="w-full h-[400px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden"
+            >
+              {heroSectionSwiper.map((slide) => {
+                return (
+                  <SwiperSlide key={slide.id} className="relative">
+                    <img
+                      src={`/images/${slide.image}`}
+                      alt={slide.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/20 flex items-center">
+                      <div className="text-white p-4 md:p-6 max-w-md">
+                        <span className="inline-block bg-teal-600 text-white px-4 py-1 rounded-full text-xs md:text-sm font-medium mb-2 md:mb-3">
+                          {slide.discount}
+                        </span>
+                        <h2 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
+                          {slide.name}
+                        </h2>
+                        <p className="mb-2 md:mb-4 text-gray-100 font-semibold text-sm">
+                          {slide.description}
+                        </p>
+                        <ul className="mb-3 md:mb-4 space-y-0 md:space-y-1">
+                          {slide.features.map((feature, index) => (
+                            <li
+                              key={index}
+                              className="flex items-center text-sm"
+                            >
+                              <span className="mr-2 text-lg text-teal-600 font-bold">
+                                ✓
+                              </span>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <div>
+                          <Link
+                            to="/shop"
+                            className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white py-1.5 px-3 md:py-2 md:px-4 rounded-md text-sm transition-all duration-300"
+                          >
+                            Shop Now
+                            <FaArrowRight className="ml-2" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
+          {/* Right Side - Features */}
+          <FeaturesSection serviceFeatures={serviceFeatures} />
         </div>
-        {/* Right Side - Features */}
-        <FeaturesSection serviceFeatures={serviceFeatures} />
       </div>
     </section>
   );

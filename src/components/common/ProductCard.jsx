@@ -5,6 +5,10 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { useNavigate } from "react-router";
 
 const ProductCard = ({ product }) => {
+  const brand =
+    product.brand && product.brand.length > 10
+      ? product.brand.split(" ")[0]
+      : product.brand;
   const navigate = useNavigate();
   function calculateOriginalPrice(discountedPrice, discountPercentage) {
     const originalPrice = discountedPrice / (1 - discountPercentage / 100);
@@ -41,8 +45,8 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="px-5 mt-5 bg-gradient-to-r from-white to-teal-50">
         <p className="flex items-center justify-between capitalize text-[12px] text-gray-500">
-          <span className="bg-gray-100 rounded-full px-1">{product.brand}</span>
-          <span className="bg-gray-100 rounded-full px-1 text-[9px]">
+          <span className="bg-gray-100 rounded-full px-1">{brand}</span>
+          <span className="bg-gray-100 rounded-full px-1 text-[10px]">
             {product.category}
           </span>
         </p>

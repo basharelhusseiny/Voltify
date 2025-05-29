@@ -8,7 +8,6 @@ html {
 }
 body {
   font-family: "Inter", sans-serif;
-  /* font-family: "DM Sans", sans-serif; */
 }
 ::selection {
   background-color: var(--mainColor);
@@ -116,6 +115,3 @@ body {
 .brands-swiper .swiper-wrapper {
   transition-timing-function: linear !important;
 }
-
-
-

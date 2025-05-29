@@ -9,7 +9,7 @@ const Navbar = ({ navLinks }) => {
           <NavLink
             key={link.id}
             to={link.path}
-            className="font-semibold py-1 hover:text-teal-600"
+            className="font-semibold py-1 hover:text-teal-600 text-lg"
           >
             {link.link}
           </NavLink>

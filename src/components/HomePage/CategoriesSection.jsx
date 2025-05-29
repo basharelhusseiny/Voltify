@@ -1,36 +1,25 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import SectionHeader from "../common/SectionHeader";
-import useFetchAllProducts from "../../hooks/useFetchAllProducts";
 import useFetchCategories from "../../hooks/useFetchCategories";
 import "swiper/css";
 import Loader from "../common/Loader";
+import { useNavigate } from "react-router";
 
 const CategoriesSection = () => {
-  const { products, loading: loadingProducts } = useFetchAllProducts();
-  const { categories, loading: loadingCategories } = useFetchCategories();
+  const { allCategory, loading } = useFetchCategories();
+  const navigate = useNavigate();
 
-  const category = categories?.map((category) => {
-    const count = products?.filter(
-      (product) => product.category === category.slug
-    ).length;
-    const img = products?.find(
-      (product) => product.category === category.slug
-    )?.thumbnail;
-    return { ...category, count, img };
-  });
-
+  if (loading) return <Loader />;
   return (
-    <div>
-      <SectionHeader
-        title="Featured Categories"
-        description="Choose your necessary products from this feature categories."
-      />
+    <section>
+      <div className="container mx-auto px-5 pt-6">
+        <SectionHeader
+          title="Featured Categories"
+          description="Choose your necessary products from this feature categories."
+        />
 
-      {/* Swiperr */}
-      {loadingProducts || loadingCategories ? (
-        <Loader />
-      ) : (
+        {/* Swiperr */}
         <div className="my-6">
           <Swiper
             modules={[Autoplay]}
@@ -50,27 +39,30 @@ const CategoriesSection = () => {
               1340: { slidesPerView: 8 },
             }}
           >
-            {category.map((item) => (
-              <SwiperSlide key={item.slug}>
-                <div className="w-[140px] p-3 border-1 border-gray-300 hover:border-teal-500 cursor-pointer duration-300">
+            {allCategory.map((category) => (
+              <SwiperSlide key={category.slug}>
+                <div
+                  onClick={() => navigate(`/categoryPage/${category.slug}`)}
+                  className="w-[140px] p-3 border-1 border-gray-300 hover:border-teal-500 cursor-pointer duration-300"
+                >
                   <img
-                    src={item.img}
-                    alt={`${item.name} logo`}
+                    src={category.img}
+                    alt={`${category.name} logo`}
                     className="w-full h-[120px] mx-auto hover:scale-125 duration-300"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = `https://placehold.co/200x100/e2e8f0/64748b?text=${item.name}`;
+                      e.target.src = `https://placehold.co/200x100/e2e8f0/64748b?text=${category.name}`;
                     }}
                   />
                   <div className="text-center mt-2">
                     <p
                       className="text-[15px] font-semibold text-teal-600 line-clamp-1"
-                      title={item.name}
+                      title={category.name}
                     >
-                      {item.name}
+                      {category.name}
                     </p>
                     <p className="text-[12px] text-gray-600">
-                      {item.count} items
+                      {category.count} items
                     </p>
                   </div>
                 </div>
@@ -78,8 +70,8 @@ const CategoriesSection = () => {
             ))}
           </Swiper>
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 };
 

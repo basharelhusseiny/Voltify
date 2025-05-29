@@ -11,9 +11,11 @@ const TrendingProducts = () => {
     "mobile-accessories",
     "smartphones",
     "tablets",
+    "mens-watches",
+    "womens-watches",
   ];
   const { products, loading } = useFetchMultipleCategories(categories);
-  
+
   const [currentPage, setCurrentPage] = useState(1);
   const [sortProduct, setSortProduct] = useState("all");
   const [productsPerPage, setProductsPerPage] = useState(10);
@@ -62,7 +64,7 @@ const TrendingProducts = () => {
 
   return (
     <div className="mt-14">
-      <div>
+      <div className="container mx-auto px-5 pt-6">
         <SectionHeader
           title="Trending Products"
           description="Special products in this month."
