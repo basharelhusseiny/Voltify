@@ -1,3 +1,4 @@
+import { memo } from "react";
 import ProductRating from "../common/ProductRating";
 import { FaRegEye, FaRegHeart } from "react-icons/fa";
 import { MdDiscount } from "react-icons/md";
@@ -88,4 +89,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

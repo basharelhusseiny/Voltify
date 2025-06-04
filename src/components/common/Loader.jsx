@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { PropagateLoader } from "react-spinners";
 
 const Loader = () => {
@@ -8,4 +9,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default memo(Loader);

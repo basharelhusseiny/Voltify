@@ -3,7 +3,7 @@ import Loader from "../common/Loader";
 import ProductCard from "../common/ProductCard";
 import SectionHeader from "../common/SectionHeader";
 import { useState, useEffect } from "react";
-import Pagination from "./Pagination";
+import Pagination from "../common/Pagination";
 
 const TrendingProducts = () => {
   const categories = [

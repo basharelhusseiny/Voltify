@@ -72,7 +72,10 @@ const SearchBar = () => {
                 <motion.div variants={itemVariants} key={category.slug}>
                   <Link
                     to={`/categoryPage/${category.slug}`}
-                    onClick={() => setIsSearchModalOpen(false)}
+                    onClick={() => {
+                      setIsSearchModalOpen(false);
+                      setDropDown(false);
+                    }}
                     className="block px-3 py-2 border-b border-gray-300 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-black"
                     role="menuitem"
                   >

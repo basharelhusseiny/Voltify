@@ -125,7 +125,7 @@ const Register = () => {
   };
 
   return (
-    <div className="py-10 md:py-16">
+    <div className="py-7 px-5">
       <motion.div
         className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
         initial="hidden"

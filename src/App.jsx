@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
-import Blog from "./pages/Blog";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import SearchModalProvider from "./context/SearchModalContext";
@@ -19,7 +18,6 @@ const App = () => {
       children: [
         { path: "/", element: <Home /> },
         { path: "/shop", element: <Shop /> },
-        { path: "/blog", element: <Blog /> },
         { path: "/AboutUs", element: <AboutUs /> },
         { path: "/contactUs", element: <ContactUs /> },
         { path: "/register", element: <Register /> },

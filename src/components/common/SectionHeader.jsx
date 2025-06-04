@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const SectionHeader = ({ title, description }) => {
   return (
     <div className="pb-3">
@@ -14,4 +16,4 @@ const SectionHeader = ({ title, description }) => {
   );
 };
 
-export default SectionHeader;
+export default memo(SectionHeader);

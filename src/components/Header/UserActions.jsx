@@ -6,6 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import { useSearchModalContext } from "../../context/SearchModalContext";
 import { useMobileMenuContext } from "../../context/MobileMenuContext";
 import CloseButton from "../common/CloseButton";
+import { memo } from "react";
 
 const UserActions = () => {
   const { isSearchModalOpen, setIsSearchModalOpen } = useSearchModalContext();
@@ -64,4 +65,4 @@ const UserActions = () => {
   );
 };
 
-export default UserActions;
+export default memo(UserActions);

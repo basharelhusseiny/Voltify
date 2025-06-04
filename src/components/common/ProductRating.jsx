@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const ProductRating = ({ rating, reviews }) => {
@@ -49,4 +50,4 @@ const ProductRating = ({ rating, reviews }) => {
   );
 };
 
-export default ProductRating;
+export default memo(ProductRating);

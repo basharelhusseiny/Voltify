@@ -119,7 +119,7 @@ const ProductsSection = ({ products, loading }) => {
             </AnimatePresence>
           </div>
           {/* Last */}
-          <div className="text-sm font-medium">
+          <div className="hidden sm:block text-sm font-medium">
             <p>
               Showing all{" "}
               <span className="text-xs bg-teal-600 text-white px-[6px] py-[3px] size-5 rounded-full">
